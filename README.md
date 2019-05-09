@@ -6,24 +6,24 @@ This simple tracker allows you to analyse your activity in the computer, keyboar
 
 ## Installation
 
-Installing it is very simple, it will require you to have Python 3 and pip installed.
+Installing it won't take more than a minute. First, need to have Python 3 and pip installed in your computer.
 
 ### Linux
 
-Download this zip and uncompress it in a convenient place, such as `\~/Documents/tracker`. Then open a terminal in that directory, and install the required dependencies.
+Download this project as a zip and uncompress it in a convenient place, such as `~/Documents/tracker`. In a terminal, install the required dependencies.
 
 ```
 pip3 install -r requirements.txt
 ```
 
-Then, edit the crontab by typing into a console `crontab -e` and add the following two lines at the end.
+Then, edit the crontab by typing `crontab -e` and add the following two lines at the end (change the path accordingly).
 
 ```
 0,30 * * * * DISPLAY=:0 python3 ~/Documents/tracker/tracker.py
 @reboot sleep 60; DISPLAY=:0 python3 ~/Documents/tracker/tracker.py
 ```
 
-And you are done! Reboot and you will have your tracker running. To see the output just go to [http://localhost:75483/](http://localhost:75483/).
+And you are done! Reboot and you will have your tracker running. To see a graphical interface just go to [http://localhost:75483/](http://localhost:75483/).
 
 ### Windows
 
@@ -35,7 +35,7 @@ This library have not been tested in MacOS yet, but you can help by installing i
 
 ## Research
 
-If you want to add new features to this tool, or to use the data it gathers for your research, this section provides some insights about the tracking data.
+If you want to add new features to this tool, or to use the data it gathers for your research, this section provides some insights about the tracking data. Note that all these information is stored only in your device, as the library never connects to the internet.
 
 When you run the tool for the first time, a `files` folder is generated. This folder contains all the tracking information that the tool gathers, spread in two files.
 
