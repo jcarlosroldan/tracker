@@ -2,7 +2,7 @@
 
 This simple tracker allows you to analyse your activity in the computer, keyboard, mouse, gamepad and much more.
 
-*here it will go a beautiful image of the final result*
+*here it will go a beautiful image of the final result with an URL to the static version*
 
 ## Installation
 
@@ -41,14 +41,14 @@ When you run the tool for the first time, a `files` folder is generated. This fo
 
 The file `events.csv` is the main document, with one line per each event that has been tracked since the beginning of the ages (or the installation). Each line starts with a letter that identifies the type of event, followed by a timestamp from when the event occurred, and some data that changes for each event type:
 
-| log_type     |       |           |          |           |       |         |         |
+| Log type     | d1    | d2        | d3       | d4        | d5    | d6      | d7      |
 | ------------ | ----- | --------- | -------- | --------- | ----- | ------- | ------- |
 | **B**egin    | start |           |          |           |       |         |         |
+| **I**dle     | start | is_active |          |           |       |         |         |
 | **K**eyboard | start | key_code  | elapsed  |           |       |         |         |
+| **W**indow   | start | app       | activity | desktop   |       |         |         |
 | **S**croll   | start | start_x   | start_y  | direction | lines | elapsed |         |
 | **C**lick    | start | start_x   | start_y  | end_x     | end_y | button  | elapsed |
-| **W**indow   | start | app       | activity | desktop   |       |         |         |
-| **I**dle     | start | is_active |          |           |       |         |         |
 
 Since there is a thread running for each kind of tracker (mouse, keyboard, window...), this lines may not be always sorted by start time.
 
@@ -68,3 +68,4 @@ Then, If you import the `ids.pk` file you'll see that the string in the position
 * Add gamepad tracking
 * Add device connect/disconnect tracking
 * Add IP/SSID tracking
+* Deploy a static version of the interface in some web
