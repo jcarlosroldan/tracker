@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tracker server</title>
+</head>
+<body>
+	<h1>Tracker server</h1>
+	<h2>Logs</h2>
+	<ul>
+		<li><a href="/errors.txt">Errors</a></li>
+		<li><a href="/events.csv">Events</a></li>
+	</ul>
+	<h2>Analysis</h2>
+	<h3>Sessions</h3>
+	<ul>
+		<li><a href="#">Time</a>: session starts by week-hour, session ends by week-hour, histogram of session lengths</li>
+	</ul>
+	<h3>Apps</h3>
+	<ul>
+		<li><a href="#">App usage</a>: top time spent by app ignoring idle time, top app by week-hour, top idle time by app</li>
+		<li><a href="#">Activity usage</a>: top time spent by activity ignoring idle time, top idle time by app, average app time</li>
+		<li><a href="#">App transition</a>: top transition graph, top combos (weighted by the frequency of the first one)</li>
+		<li><a href="#">Procrastination</a>: procrastination time by week-hour, top pre-procrastination apps</li>
+	</ul>
+	<h3>Keyboard</h3>
+	<ul>
+		<li><a href="#">Typing speed</a>: average words per minute, press speed by key, next key press speed, previous key press speed</li>
+		<li><a href="#">Vocabulary</a>: word frequency, word TF-IDF frequency, key frequency, key TF-IDF frequency</li>
+		<li><a href="#">By app</a>: average typing type per app, most common words per app</li>
+	</ul>
+	<h3>Mouse</h3>
+	<ul>
+		<li><a href="#">Clicks</a>: left click heatmap, right click heatmap</li>
+		<li><a href="#">Scroll</a>: top scrolling apps, top scrolling activities</li>
+	</ul>
+</body>
+</html>
