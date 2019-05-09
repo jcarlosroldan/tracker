@@ -63,8 +63,9 @@ Then, If you import the `ids.pk` file you'll see that the string in the position
 
 ## Tasks
 
-* Update the web interface so it is not 90's internet style
 * Add the analytics
+* Update the web interface so it is not 90's internet style
+* Find a sexier name for the tool
 * Add gamepad tracking
 * Add device connect/disconnect tracking
 * Add IP/SSID tracking
