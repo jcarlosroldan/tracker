@@ -1,0 +1,122 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font: 14pt/115% sans-serif;
+	--black: #2c2c2c;
+	--darkgray: #383a42;
+	--gray: #9ea2ac;
+	--lightgray: #dfe0e3;
+	--white: #fff;
+	--blue: #1997c6;
+	--aqua: #14adb5;
+}
+*::-webkit-inner-spin-button, *::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+}
+input {
+	border: 0;
+	padding: .5em;
+	color: var(--white);
+	font-family: monospace;
+	background: none;
+	width: 9em;
+	cursor: pointer;
+}
+body {
+	display: flex;
+	align-content: stretch;
+	padding: 2em 2em 4em;
+	background: var(--black);
+	max-width: 1200px;
+	margin: auto;
+}
+aside {
+	flex: 1 0 0;
+}
+aside a {
+	text-decoration: none;
+}
+section {
+	flex: 3 0 0;
+}
+header {
+	display: flex;
+	align-content: stretch;
+	margin-bottom: 1.5em;
+}
+h1 .text {
+	font-size: 1.6em;
+	font-weight: bold;
+	color: var(--gray);
+	display: inline-block;
+}
+h2 {
+	margin: 0 .5em;
+	font-size: 2em;
+	flex: 2 0 0;
+	color: var(--white);
+}
+h3 {
+	margin: 0 .5em;
+	font-size: 1.6em;
+	font-weight: bold;
+	flex: 2 0 0;
+	color: var(--lightgray);
+}
+h4 {
+	margin: 0 .8em;
+	font-size: 1em;
+	flex: 2 0 0;
+	color: var(--gray);
+}
+.range {
+	flex: 1 0 0;
+	min-width: 21em;
+	text-align: center;
+	background: var(--gray);
+	border-radius: 3px;
+	background: linear-gradient(160deg, var(--blue), var(--aqua));
+}
+.range > * {
+	display: inline-block;
+}
+.range-text {
+	padding: .6em .7em;
+	background: #181f3985;
+	color: var(--white);
+	font-weight: 600;
+}
+.menu {
+	margin-top: 1.5em;
+}
+.menu a {
+	display: block;
+	color: var(--white);
+	max-width: 12em;
+	padding: .6em .7em;
+	margin: .4em 0;
+	border-radius: 2.9px;
+	transition: .2s ease-in color,.1s ease-in-out background;
+}
+.menu a:hover {
+	background: var(--darkgray);
+	color: var(--lightgray);
+}
+.menu a.current {
+	background: linear-gradient(160deg, var(--blue), var(--aqua));
+}
+.chart {
+	margin-top: 1.6em;
+}
+.char .axis .tick {
+	font: 1em monospace;
+	color: var(--gray);
+}
+.tooltip {
+	color: var(--gray);
+	position: fixed;
+	bottom: .5em;
+	left: 1em;
+}

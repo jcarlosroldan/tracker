@@ -1,0 +1,52 @@
+{
+	"proctitle": "tracker",
+	"server": {
+		"port": 7549,
+		"local": true
+	},
+	"path": {
+		"lock": "data/.lock",
+		"errors": "data/errors.txt",
+		"events": "data/events.csv",
+		"ids": "data/ids.txt",
+		"templates": "../static/templates",
+		"static": "../static"
+	},
+	"period": {
+		"lock": 5,
+		"window": 0.25,
+		"idle": 1,
+		"idle_after": 30
+	},
+	"log": {
+		"each": 50
+	},
+	"event": {
+		"begin": "B",
+		"keyboard": "K",
+		"scroll": "S",
+		"click": "C",
+		"window": "W",
+		"idle": "I"
+	},
+	"mouse": {
+		"left": 0,
+		"right": 1,
+		"middle": 2
+	},
+	"extensions": [
+		"css",
+		"csv",
+		"eot",
+		"ico",
+		"js",
+		"map",
+		"otf",
+		"png",
+		"svg",
+		"ttf",
+		"txt",
+		"woff",
+		"woff2"
+	]
+}

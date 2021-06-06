@@ -1,4 +1,0 @@
-Convertir en multiplataforma
-Miniservidor web como interfaz
-Menú de opciones
-Menú de qué cosas se envían

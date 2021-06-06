@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>tsika</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="style.css" rel="stylesheet">
+	<link rel="icon" href="logo.svg">
+	<script src="/highcharts-7.1.2/main.js"></script>
+	<script src="/highcharts-7.1.2/heatmap.js"></script>
+</head>
+<body>
+	<aside>
+		<a href="/"><h1>
+			<img src="logo.svg" width=30 height=30 class="d-inline-block align-top"><div class="text">tsika</div>
+		</h1></a>
+		<div class="menu">
+			<a href="/" class="current">Overview</a>
+			<a href="/manage">Manage</a>
+			<a href="/sessions">Sessions</a>
+			<a href="/apps">Apps</a>
+			<a href="/keyboard">Keyboard</a>
+			<a href="/mouse">Mouse</a>
+		</div>
+	</aside>
+	<section>
+		<header>
+			<h2>Overview</h2>
+			<div class="range">
+				<input type="date" value="2018-07-17"><div class="range-text">to</div><input type="date" value="2019-07-17">
+			</div>
+		</header>
+		<article>
+			<h3>Session starts</h3>
+			<h4>Number of sessions started per day of the week and hour.</h4>
+			<div class="chart" id="session-starts"></div>
+		</article>
+	</section>
+	<script src="main.js"></script>
+</body>
+</html>
