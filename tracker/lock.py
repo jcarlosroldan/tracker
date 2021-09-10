@@ -15,7 +15,7 @@ def lock_start():
 		except:
 			pass
 	register(lambda: remove(cfg('path.lock')))
-	return lock_start, cfg('period.lock')
+	return lock_track, cfg('period.lock')
 
 def lock_track():
 	save(cfg('path.lock'), str(time()))
