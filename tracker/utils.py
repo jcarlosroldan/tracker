@@ -43,18 +43,17 @@ def error(context: str) -> None:
 	cfg('log.error').flush()
 
 def translate(src: Union[str, int] = None, reverse: bool = False) -> Union[int, str]:
-	''' Translates the src entry into a code (or the opposite if `reverse` is set. '''
+	''' Translates the src entry into a code, or the opposite if `reverse` is set. '''
 	if cfg('translate') is None:
-		cfg('translate', [
-			line.replace('\\n', '\n').replace('\\', '\\\\')
-			for line in load(cfg('path.ids')).strip().split('\n')
-		] if exists(cfg('path.ids')) else [])
+		cfg('translate', load(cfg('path.ids')).strip().split('\n') if exists(cfg('path.ids')) else [])
 	if reverse:
 		return cfg('translate')[src]
-	elif src in cfg('translate'):
-		return cfg('translate').index(src)  # this is O(n), a trie structure would help
 	else:
-		code = len(cfg('translate'))
-		save(cfg('path.ids'), src.replace('\\', '\\\\').replace('\n', '\\n') + '\n', append=True)
-		cfg('translate').append(code)
-		return code
+		src = src.replace('\n', ' ')
+		try:
+			return cfg('translate').index(src)  # this is O(n), a trie structure would help
+		except ValueError:
+			code = len(cfg('translate'))  # this operation should be sequential with the next to avoid concurrency issues
+			cfg('translate').append(src)
+			save(cfg('path.ids'), src + '\n', append=True)
+			return code
