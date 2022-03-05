@@ -74,15 +74,17 @@ def human_date(date):
 			diff = diff // amount
 			return '%d %s%s ago' % (diff, name, 's' if diff > 1 else '')
 
-APP.jinja_env.filters['json_pretty'] = lambda t: dumps(t, ensure_ascii=False, indent=4, separators=(',', ': '), default=lambda o: '<not serializable>')
-APP.jinja_env.filters['json_min'] = lambda t: dumps(t, ensure_ascii=False, separators=(',', ':'), default=lambda o: str(o))
-APP.jinja_env.filters['reverse_dict'] = lambda d: {v: k for k, v in d.items()}
-APP.jinja_env.filters['percent'] = lambda n: '%.2f%%' % (100 * n)
-APP.jinja_env.filters['comma_separated'] = lambda n: '{:,d}'.format(n)
-APP.jinja_env.filters['str_list'] = lambda n: ', '.join(n)
-APP.jinja_env.filters['str_list_code'] = lambda n: ', '.join(['<code class="text-primary">%s</code>' % e for e in n])
-APP.jinja_env.filters['ucfirst'] = lambda t: t[0].upper() + t[1:]
-APP.jinja_env.filters['single_quote_escape'] = lambda t: t.replace('\\', '\\\\').replace('\'', '\\\'')
-APP.jinja_env.filters['human_date'] = human_date
-APP.jinja_env.filters['xpath_min'] = lambda t: sub(r'\[(\d+)\]', r'<sub>\1</sub>', t.split('/body[1]/')[1])
+APP.jinja_env.filters.update({
+	'json_pretty': lambda t: dumps(t, ensure_ascii=False, indent=4, separators=(',', ': '), default=lambda o: '<not serializable>'),
+	'json_min': lambda t: dumps(t, ensure_ascii=False, separators=(',', ':'), default=lambda o: str(o)),
+	'reverse_dict': lambda d: {v: k for k, v in d.items()},
+	'percent': lambda n: '%.2f%%' % (100 * n),
+	'comma_separated': lambda n: '{:,d}'.format(n),
+	'str_list': lambda n: ', '.join(n),
+	'str_list_code': lambda n: ', '.join(['<code class="text-primary">%s</code>' % e for e in n]),
+	'ucfirst': lambda t: t[0].upper() + t[1:],
+	'single_quote_escape': lambda t: t.replace('\\', '\\\\').replace('\'', '\\\''),
+	'human_date': human_date,
+	'xpath_min': lambda t: sub(r'\[(\d+)\]', r'<sub>\1</sub>', t.split('/body[1]/')[1])
+})
 APP.jinja_env.globals.update(enumerate=enumerate, zip=zip, len=len, reversed=reversed, list=list)
