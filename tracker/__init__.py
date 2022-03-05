@@ -1,5 +1,4 @@
 from atexit import register
-from typing import Callable, Tuple
 from setproctitle import setproctitle
 from threading import Thread
 from time import sleep, time
@@ -10,6 +9,7 @@ from tracker.mouse import mouse_start
 from tracker.server import server_start
 from tracker.utils import cfg, error, log
 from tracker.window import window_start
+from typing import Callable, Tuple
 from webbrowser import open as open_browser
 
 def run() -> None:
@@ -22,7 +22,7 @@ def run() -> None:
 			Thread(target=loop, args=idle_start()),
 			Thread(target=loop, args=lock_start()),
 			keyboard_start(),
-			mouse_start()  # XXX add joystick tracking and periodic snapshots
+			mouse_start()  # TODO add joystick tracking and periodic snapshots
 		)
 		log('begin')
 		[t.start() for t in threads]
