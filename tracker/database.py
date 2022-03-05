@@ -1,7 +1,7 @@
-from typing import Union
-from simpler import load, save
+from simpler import load
 from sqlite3 import connect
 from tracker.utils import cfg
+from typing import Union
 
 def init_db():
 	conn = connect(cfg('path.database'))
@@ -20,14 +20,3 @@ def translate(src: Union[str, int] = None, reverse: bool = False) -> Union[int, 
 			return cfg('mappings_reverse')[src]
 		except ValueError:
 			cfg('database').execute('INSERT INTO mapping (value) VALUES (?)', (src,))
-	if reverse:
-		return cfg('translate')[src]
-	else:
-		src = src.replace('\n', ' ')
-		try:
-			return cfg('translate').index(src)  # this is O(n), a trie structure would help
-		except ValueError:
-			code = len(cfg('translate'))  # this operation should be sequential with the next to avoid concurrency issues
-			cfg('translate').append(src)
-			save(cfg('path.ids'), src + '\n', append=True)
-			return code
