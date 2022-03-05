@@ -8,7 +8,7 @@ This simple tracker allows you to analyse your activity in the computer, keyboar
 
 Installing it won't take more than a minute. First, need to have Python 3 and pip installed in your computer.
 
-### Linux
+### Linux / Windows
 
 Download this project as a zip and uncompress it in a convenient place, such as `~/Documents/tracker`. In a terminal, install the required dependencies.
 
@@ -23,11 +23,7 @@ Then, edit the crontab by typing `crontab -e` and add the following two lines at
 @reboot sleep 60; DISPLAY=:0 python3 ~/Documents/tracker/tracker.py
 ```
 
-And you are done! Reboot and you will have your tracker running. To see a graphical interface just go to [http://localhost:75483/](http://localhost:75483/).
-
-### Windows
-
-Unfortunately, this library is not available for Windows yet. See [pynput #118](https://github.com/moses-palmer/pynput/issues/118) for more details.
+And you are done! Reboot and you will have your tracker running. To see a graphical interface just go to [http://localhost:7549/](http://localhost:7549/).
 
 ### MacOS
 

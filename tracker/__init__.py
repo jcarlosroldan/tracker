@@ -10,6 +10,7 @@ from tracker.mouse import mouse_start
 from tracker.server import server_start
 from tracker.utils import cfg, error, log
 from tracker.window import window_start
+from webbrowser import open as open_browser
 
 def run() -> None:
 	try:
@@ -25,12 +26,13 @@ def run() -> None:
 		)
 		log('begin')
 		[t.start() for t in threads]
+		open_browser('http://localhost:%s' % cfg('server.port'), new=0)
 		loop(*window_start())  # GetWindowText requires being in the main thread due to W10 bug
 		[t.join() for t in threads]
 	except:
 		error('TRACKER INIT')
 
-def loop(target: Tuple[Callable, float], throttle=0) -> None:
+def loop(target: Tuple[Callable, float], throttle: float = 0) -> None:
 	try:
 		while cfg('running'):
 			now = time()

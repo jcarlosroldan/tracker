@@ -1,5 +1,5 @@
 from ctypes import c_char, WinDLL
-from os import remove, name as os_name, environ
+from os import name as os_name, environ
 from pyvda import GetCurrentDesktopNumber
 from subprocess import Popen, PIPE
 from time import time

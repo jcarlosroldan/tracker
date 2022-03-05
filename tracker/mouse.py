@@ -12,7 +12,7 @@ def mouse_start():
 		on_move=lambda x, y: mouse_track('move', x, y)
 	)
 
-def mouse_track(event_type, x, y, button=None, pressed=None, scroll_x=None, scroll_y=None):
+def mouse_track(event_type: str, x: int, y: int, button=None, pressed=None, scroll_x=None, scroll_y=None):
 	try:
 		idle_refresh()
 		if event_type == 'click':
