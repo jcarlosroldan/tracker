@@ -7,6 +7,8 @@
 	"path": {
 		"lock": "data/.lock",
 		"errors": "data/errors.txt",
+		"database": "data/tracker.db",
+		"schema": "data/schema.sql",
 		"events": "data/events.csv",
 		"ids": "data/ids.txt",
 		"templates": "../static/templates",
@@ -19,7 +21,7 @@
 		"idle_after": 30
 	},
 	"log": {
-		"each": 50
+		"each": 1
 	},
 	"event": {
 		"begin": "B",
