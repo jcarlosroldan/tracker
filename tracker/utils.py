@@ -21,13 +21,19 @@ def cfg(path: str, value: object = None) -> Optional[object]:
 	else:
 		res[key] = value
 
+_first_event = None
 def log(event: str, moment: float = None, *data) -> None:
 	''' Logs the given event. '''
+	global _first_event
 	if cfg('log.pending') is None:
 		cfg('log.pending', 0)
 		cfg('log.events', open(cfg('path.events'), 'a', encoding='utf-8'))
 		register(cfg('log.events').close)
 	moment = time() if moment is None else moment
+	if _first_event is None:
+		assert event == 'begin', 'The first event must be "begin".'
+		_first_event = moment
+	moment -= _first_event
 	cfg('log.events').write(','.join((cfg('event')[event], '%.3f' % moment, *map(str, data))) + '\n')
 	cfg('log.pending', cfg('log.pending') + 1)
 	if cfg('log.pending') >= cfg('log.each'):
